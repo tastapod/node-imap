@@ -1251,7 +1251,7 @@ function parseFetch(str, literalData, fetchData) {
           headerValue;
       fetchData.headers = {};
       for (var j=0,len2=headers.length; j<len2; ++j) {
-        match = headers[j].match(/(.*?):\s*(.*)/);
+        match = headers[j].replace(/\r\n /g, " ").match(/(.*?):\s*(.*)/);
         header = match[1].toLowerCase();
         if (!fetchData.headers[header])
           fetchData.headers[header] = [];
